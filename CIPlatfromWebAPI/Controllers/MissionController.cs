@@ -74,7 +74,6 @@ namespace Web_API.Controllers
 
         [HttpPost]
         [Route("AddMission")]
-        [Authorize]
         public ResponseResult AddMission(Missions mission)
         {
             try

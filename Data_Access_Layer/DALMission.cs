@@ -39,9 +39,47 @@ namespace Data_Access_Layer
         public async Task<string> AddMission(Missions mission)
         {
             string result = "";
+
+            var newMission = new Missions
+            {
+                Id = mission.Id,
+                IsDeleted = false,
+                MissionTitle = mission.MissionTitle,
+                MissionDescription = mission.MissionDescription,
+                CountryId = mission.CountryId,
+                CityId = mission.CityId,
+                StartDate = mission.StartDate,
+                EndDate = mission.EndDate,
+                TotalSheets = mission.TotalSheets,
+                RegistrationDeadLine = DateTime.Now.ToUniversalTime(),
+                MissionThemeId = mission.MissionThemeId,
+                MissionSkillId = mission.MissionSkillId,
+                MissionImages = mission.MissionImages,
+                MissionOrganisationName = "",
+                CityName = "",
+                CountryName = "",
+                CreatedDate = DateTime.Now.ToUniversalTime(),
+                MissionOrganisationDetail = "",
+                MissionApplyStatus = "",
+                MissionApproveStatus = "",
+                MissionAvilability = "",
+                MissionDateStatus = "",
+                MissionDeadLineStatus = "",
+                MissionDocuments = "",
+                MissionFavouriteStatus = "",
+                MissionSkillName = "",
+                MissionStatus = "",
+                MissionThemeName = "",
+                MissionType = "",
+                MissionVideoUrl = "",
+                ModifiedDate = DateTime.Now.ToUniversalTime(),
+                Rating = 0
+            };
+           
+
             try
             {
-                _cIDbContext.Missions.Add(mission);
+                _cIDbContext.Missions.Add(newMission);
                 _cIDbContext.SaveChanges();
                 result = "Mission added successfully.";
             }
